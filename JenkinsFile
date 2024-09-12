@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout and List Files') {
+            steps {
+                script {
+                    // Checkout code from the source control
+                    checkout scm
+                    
+                    // Print filenames in the workspace
+                    echo 'Listing files in the workspace:'
+                    sh 'ls -l'
+                }
+            }
+        }
+    }
+}
